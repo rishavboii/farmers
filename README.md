@@ -1,4 +1,4 @@
-### File 2: `README_PRESENTATION.md` (For Pitching & Technical Submissions)
+
 
 ```markdown
 # Agri Farma Express — Technical & Operational Overview
