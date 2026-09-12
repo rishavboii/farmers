@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Farma Express | Hexa Core (SIH 2026)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN for reactivity -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased" x-data="{ activeTab: 'overview', activeChannel: 'pwa', tokenSuccess: false, tokenID: '' }">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-700 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white text-emerald-700 p-2 rounded-lg font-bold text-xl">AFE</div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Agri Farma Express</h1>
+                    <p class="text-xs text-emerald-200">Team Hexa Core | SIH 2026 (PS 26032)</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <button @click="activeTab = 'overview'" :class="activeTab === 'overview' ? 'border-b-2 border-white text-white' : 'text-emerald-100 hover:text-white'">Overview</button>
+                <button @click="activeTab = 'booking'" :class="activeTab === 'booking' ? 'border-b-2 border-white text-white' : 'text-emerald-100 hover:text-white'">Token Booking</button>
+                <button @click="activeTab = 'tech'" :class="activeTab === 'tech' ? 'border-b-2 border-white text-white' : 'text-emerald-100 hover:text-white'">Tech & Flow</button>
+                <button @click="activeTab = 'impact'" :class="activeTab === 'impact' ? 'border-b-2 border-white text-white' : 'text-emerald-100 hover:text-white'">Impact & Future</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+
+        <!-- OVERVIEW SECTION -->
+        <section x-show="activeTab === 'overview'" class="space-y-6">
+            <!-- Hero Banner -->
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 flex flex-col md:flex-row gap-6 items-center">
+                <div class="space-y-4 flex-1">
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-semibold">Department of Consumer Affairs (DOCA)</span>
+                    <h2 class="text-3xl font-extrabold text-slate-800">Smart Token & Queue Management System for Agricultural Procurement</h2>
+                    <p class="text-slate-600">Eliminating 12–48 hour mandi queue delays using a dynamic slot allocation algorithm, offline-resilient microservices, and multi-channel access (PWA, IVR, WhatsApp, SMS).</p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button @click="activeTab = 'booking'" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-lg shadow-sm transition">Book Token Prototype</button>
+                        <button @click="activeTab = 'tech'" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium px-5 py-2.5 rounded-lg border border-slate-300 transition">View Tech Architecture</button>
+                    </div>
+                </div>
+                <div class="w-full md:w-80 bg-slate-900 text-slate-100 p-5 rounded-xl space-y-3 text-xs">
+                    <div class="font-bold border-b border-slate-700 pb-2 text-emerald-400">SIH 2026 Submission Metadata</div>
+                    <div><span class="text-slate-400">Team Name:</span> Hexa Core</div>
+                    <div><span class="text-slate-400">Problem ID:</span> 26032</div>
+                    <div><span class="text-slate-400">Theme:</span> Farmers and Consumer Affairs</div>
+                    <div><span class="text-slate-400">Category:</span> Software</div>
+                    <div><span class="text-slate-400">Target Entities:</span> Mandis, FCI, NAFED</div>
+                </div>
+            </div>
+
+            <!-- Problem vs Solution -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-red-900 mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>The Problem</h3>
+                    <p class="text-sm text-red-800">Farmers face long waiting times (12–48 hours) outside Mandis, lack of real-time info on procurement schedules, high crop spoilage risks due to open weather, and payment status uncertainties.</p>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-emerald-900 mb-2"><i class="fa-solid fa-circle-check mr-2"></i>The Hexa Core Solution</h3>
+                    <p class="text-sm text-emerald-800">An end-to-end cloud-native platform featuring automated slot dynamic scheduling, geofenced queue activation within a 2 km radius, Aadhaar e-KYC integration, and direct PFMS payment tracking.</p>
+                </div>
+            </div>
+
+            <!-- Key Pillars -->
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <i class="fa-solid fa-[#10B981] fa-clock text-emerald-600 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">Dynamic Allocation</h4>
+                    <p class="text-xs text-slate-500 mt-1">Schedules tokens based on daily weighbridge and storage throughput.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <i class="fa-solid fa-mobile-screen-button text-emerald-600 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">Multi-Channel Access</h4>
+                    <p class="text-xs text-slate-500 mt-1">Supports PWA, IVR toll-free voice calls, USSD code (*123#), and WhatsApp.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <i class="fa-solid fa-location-crosshairs text-emerald-600 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">GPS Geofenced Queue</h4>
+                    <p class="text-xs text-slate-500 mt-1">Tokens activate live only when farmer enters a 2 km perimeter.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <i class="fa-solid fa-indian-rupee-sign text-emerald-600 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">DBT & PFMS Sync</h4>
+                    <p class="text-xs text-slate-500 mt-1">Aadhaar e-KYC and Direct Benefit Transfer status updates via SMS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOKEN BOOKING PROTOTYPE -->
+        <section x-show="activeTab === 'booking'" class="space-y-6">
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">Multi-Channel Token Allocation Booking</h2>
+                <p class="text-slate-600 text-sm mb-6">Experience how farmers across all digital literacy levels interact with Agri Farma Express.</p>
+
+                <!-- Channel Switcher -->
+                <div class="flex space-x-2 border-b border-slate-200 pb-3 mb-6 overflow-x-auto">
+                    <button @click="activeChannel = 'pwa'" :class="activeChannel === 'pwa' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700'" class="px-4 py-2 rounded-lg text-xs font-semibold">PWA (Smartphone App)</button>
+                    <button @click="activeChannel = 'ivr'" :class="activeChannel === 'ivr' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700'" class="px-4 py-2 rounded-lg text-xs font-semibold">IVR / USSD (*123#)</button>
+                    <button @click="activeChannel = 'whatsapp'" :class="activeChannel === 'whatsapp' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700'" class="px-4 py-2 rounded-lg text-xs font-semibold">WhatsApp Bot</button>
+                    <button @click="activeChannel = 'csc'" :class="activeChannel === 'csc' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700'" class="px-4 py-2 rounded-lg text-xs font-semibold">CSC / Mandi Operator</button>
+                </div>
+
+                <!-- PWA Interface -->
+                <div x-show="activeChannel === 'pwa'" class="max-w-lg mx-auto bg-slate-50 p-6 rounded-xl border border-slate-200">
+                    <form @submit.prevent="tokenID = 'AFE-' + Math.floor(100000 + Math.random() * 900000); tokenSuccess = true;" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Farmer Name</label>
+                            <input type="text" required placeholder="Enter Full Name" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Aadhaar Number (e-KYC Verification Placeholder)</label>
+                            <input type="text" required placeholder="Enter 12-digit Aadhaar" maxlength="12" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Target Mandi</label>
+                                <select class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 outline-none">
+                                    <option>Central Grain Mandi - Hub 1</option>
+                                    <option>District FCI Procurement Yard</option>
+                                    <option>NAFED Regional Depot</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Crop Weight (Quintal)</label>
+                                <input type="number" required placeholder="e.g. 50" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg text-sm shadow transition">Generate Smart Slot Token</button>
+                    </form>
+                </div>
+
+                <!-- IVR Simulation -->
+                <div x-show="activeChannel === 'ivr'" class="max-w-md mx-auto bg-slate-900 text-slate-100 p-6 rounded-xl space-y-4">
+                    <div class="text-xs text-emerald-400 font-mono">IVR Toll-Free Channel: 1800-XXX-AGRI</div>
+                    <div class="space-y-2 text-sm">
+                        <p class="bg-slate-800 p-3 rounded border border-slate-700">🔊 "Namaskar! Agri Farma Express me aapka swagat hai. Gehun ke token ke liye 1 dabayein."</p>
+                        <p class="bg-slate-800 p-3 rounded border border-slate-700">🔊 "Apna Mandi Code (e.g. 101) aur anumanit vajan (Quintal) enter karein."</p>
+                    </div>
+                    <button @click="tokenID = 'IVR-' + Math.floor(100000 + Math.random() * 900000); tokenSuccess = true;" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 rounded text-xs">Simulate Missed Call / Voice Token</button>
+                </div>
+
+                <!-- WhatsApp Simulation -->
+                <div x-show="activeChannel === 'whatsapp'" class="max-w-md mx-auto bg-emerald-950 text-emerald-100 p-6 rounded-xl space-y-3 font-sans">
+                    <div class="flex items-center space-x-2 border-b border-emerald-800 pb-2">
+                        <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                        <span class="font-bold text-sm">AgriFarma WhatsApp Bot</span>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div class="bg-emerald-900 p-2.5 rounded-lg max-w-[80%]">Farmer: "Hi, I want to book a token for Wheat at Mandi 1."</div>
+                        <div class="bg-emerald-800 p-2.5 rounded-lg max-w-[80%] ml-auto">Bot: "Verified Aadhaar. Available slot tomorrow 10:00 AM - 11:30 AM. Reply 'YES' to confirm."</div>
+                    </div>
+                    <button @click="tokenID = 'WA-' + Math.floor(100000 + Math.random() * 900000); tokenSuccess = true;" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded text-xs">Simulate WhatsApp Token Booking</button>
+                </div>
+
+                <!-- CSC Simulation -->
+                <div x-show="activeChannel === 'csc'" class="max-w-lg mx-auto bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs space-y-3">
+                    <h4 class="font-bold text-slate-800 text-sm">Assisted Booking (KVKs, CSCs, Mandi Operators)</h4>
+                    <p class="text-slate-600">Common Service Centre operators can perform bulk land-record lookup and issue tokens on behalf of farmers lacking phone access.</p>
+                    <button @click="tokenID = 'CSC-' + Math.floor(100000 + Math.random() * 900000); tokenSuccess = true;" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded text-xs">Issue Operator Token</button>
+                </div>
+
+                <!-- Confirmation Modal -->
+                <div x-show="tokenSuccess" class="mt-6 p-4 bg-emerald-50 border border-emerald-300 rounded-xl max-w-lg mx-auto text-center space-y-2">
+                    <i class="fa-solid fa-circle-check text-emerald-600 text-3xl"></i>
+                    <h4 class="font-bold text-emerald-900 text-lg">Token Issued Successfully!</h4>
+                    <p class="text-xs text-slate-600">Token ID: <span class="font-mono font-bold text-slate-800" x-text="tokenID"></span></p>
+                    <div class="inline-block bg-white p-3 border border-slate-300 rounded-lg">
+                        <i class="fa-solid fa-qrcode text-5xl text-slate-800"></i>
+                        <p class="text-[10px] text-slate-500 mt-1">Scan at Mandi Entrance</p>
+                    </div>
+                    <p class="text-xs text-emerald-700 font-medium">GPS Geofence Notice: Live entry queue activates when you are within 2 km of the Mandi gate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK & METHODOLOGY SECTION -->
+        <section x-show="activeTab === 'tech'" class="space-y-6">
+            <!-- Tech Stack Table -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Architecture & Technical Stack</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-emerald-700">Frontend Layer</span>
+                        <p class="text-xs text-slate-600 mt-1">Next.js / React PWA, Tailwind CSS for low-bandwidth UI styling.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-emerald-700">Backend Microservices</span>
+                        <p class="text-xs text-slate-600 mt-1">Node.js (Express) / Python (FastAPI) cloud-native services.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-emerald-700">Real-Time Sync</span>
+                        <p class="text-xs text-slate-600 mt-1">Socket.io and Redis cache for live queue display updates.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-emerald-700">Geo-Spatial Database</span>
+                        <p class="text-xs text-slate-600 mt-1">PostgreSQL + PostGIS for 2 km boundary tracking.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-emerald-700">Telecom & Gateways</span>
+                        <p class="text-xs text-slate-600 mt-1">Twilio / Gupshup APIs for SMS, WhatsApp Bot, and local IVRS calls.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-emerald-700">Government Integrations</span>
+                        <p class="text-xs text-slate-600 mt-1">Aadhaar e-KYC, Land Record DB, and PFMS for DBT tracking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methodology Steps -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Methodology & Implementation Flow</h3>
+                <div class="space-y-3 text-xs">
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                        <span class="bg-emerald-600 text-white px-2 py-0.5 rounded font-bold">Phase 1</span>
+                        <div><strong class="text-slate-800">Initiation & Assessment:</strong> Problem Statement 26032 analysis, DOCA/Farmer stakeholder metrics definition.</div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                        <span class="bg-emerald-600 text-white px-2 py-0.5 rounded font-bold">Phase 2</span>
+                        <div><strong class="text-slate-800">Agile Platform Development:</strong> 2-week sprints, PWA/IVR design, microservices, dynamic slot allocation engine.</div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                        <span class="bg-emerald-600 text-white px-2 py-0.5 rounded font-bold">Phase 3</span>
+                        <div><strong class="text-slate-800">Integration & Security:</strong> Aadhaar e-KYC cross-verification, PFMS DBT integration, security vulnerability audits.</div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                        <span class="bg-emerald-600 text-white px-2 py-0.5 rounded font-bold">Phase 4</span>
+                        <div><strong class="text-slate-800">Pilot Deployment:</strong> High & low tech zone mandis, tablet deployment, staff/volunteer training.</div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                        <span class="bg-emerald-600 text-white px-2 py-0.5 rounded font-bold">Phase 5</span>
+                        <div><strong class="text-slate-800">Scale & CI/CD Pipeline:</strong> Feedback loop, state-to-national progressive rollout, automated CI/CD deployment.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT & FUTURE EXPANSION SECTION -->
+        <section x-show="activeTab === 'impact'" class="space-y-6">
+            <!-- Impact & Benefits -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Direct Benefits & Social Impact</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+                        <i class="fa-solid fa-hourglass-half text-emerald-600 text-xl mb-2"></i>
+                        <h4 class="font-bold text-emerald-900">Wait Time Reduction</h4>
+                        <p class="text-xs text-emerald-700 mt-1">Dramatically decreases mandi queues from 12–48 hours down to 1–2 hours.</p>
+                    </div>
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+                        <i class="fa-solid fa-wheat-awn-circle-exclamation text-emerald-600 text-xl mb-2"></i>
+                        <h4 class="font-bold text-emerald-900">Minimised Spoilage</h4>
+                        <p class="text-xs text-emerald-700 mt-1">Prevents post-harvest crop loss caused by unseasonal rain while waiting in open lines.</p>
+                    </div>
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+                        <i class="fa-solid fa-shield-halved text-emerald-600 text-xl mb-2"></i>
+                        <h4 class="font-bold text-emerald-900">Price & Payment Transparency</h4>
+                        <p class="text-xs text-emerald-700 mt-1">Automated updates for moisture test scores and direct benefit transfer (DBT) milestones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business & Expansion Plan -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Future Business & Expansion Plan</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <span class="font-bold text-slate-800">B2B SaaS Model</span>
+                        <p class="text-xs text-slate-600 mt-1">Commercialization for private agribusinesses, food processors, and contract farming companies to manage private procurement hubs.</p>
+                    </div>
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <span class="font-bold text-slate-800">Logistics Aggregation</span>
+                        <p class="text-xs text-slate-600 mt-1">Partnering with tractor/truck aggregators to provide seamless transport booking upon token allocation.</p>
+                    </div>
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <span class="font-bold text-slate-800">Storage Space Reservation</span>
+                        <p class="text-xs text-slate-600 mt-1">Enabling farmers to reserve space in local cold storages and warehouses during market oversupply.</p>
+                    </div>
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <span class="font-bold text-slate-800">Agri-Fintech Services</span>
+                        <p class="text-xs text-slate-600 mt-1">Leveraging verified crop procurement records to offer micro-loans, insurance, and input financing with partner banks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research References -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm text-xs space-y-2">
+                <h4 class="font-bold text-slate-800 text-sm mb-2">Research & Alignment Standards</h4>
+                <p>• <strong>NITI Aayog Reports:</strong> Aligns with national recommendations to digitalize post-harvest supply chains.</p>
+                <p>• <strong>DFPD Alignment:</strong> Implements standardized intake workflows aligned with central foodgrain procurement rules.</p>
+                <p>• <strong>e-NAM Guidelines:</strong> Built for integration with national electronic agricultural trading standards for quality assaying and digital payments.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-bold text-slate-200">Agri Farma Express — Hexa Core</p>
+                <p>Smart India Hackathon 2026 | Problem Statement ID: 26032</p>
+            </div>
+            <div class="text-right">
+                <p>Department of Consumer Affairs (DOCA)</p>
+                <p class="text-emerald-400">Deployed via GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
